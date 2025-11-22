@@ -1,198 +1,93 @@
-/* style.css */
+    /* ----------------------------------------------------------------
+    Custom Styles for Nabil Fikri Winaji Portfolio
+    This file handles color variables and the responsive timeline layout.
+    ---------------------------------------------------------------- */
 
-/* --- GENERAL STYLES --- */
-:root {
-    --primary-color: #007bff; /* Biru Profesional */
-    --secondary-color: #6c757d;
-    --light-bg: #f8f9fa;
-    --dark-text: #343a40;
-}
+    /* Primary Accent Colors (Dark Blue) */
+    :root {
+        --primary-color: #1e3a8a; /* Blue 800 */
+        --primary-bg: #1e3a8a;
+        --secondary-line-color: #bfdbfe; /* Blue 200 */
+    }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    color: var(--dark-text);
-    background-color: white;
-}
+    .primary-color {
+        color: var(--primary-color);
+    }
+    .primary-bg {
+        background-color: var(--primary-bg);
+    }
+    .primary-border {
+        border-color: var(--primary-color);
+    }
 
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    overflow: hidden;
-    padding: 0 20px;
-}
+    /* ----------------------------------------------------------------
+    Timeline Layout Logic (for Work Experience)
+    ---------------------------------------------------------------- */
 
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s;
-}
+    /* The vertical line for the timeline */
+    .timeline-line {
+        position: absolute;
+        width: 2px;
+        background-color: var(--secondary-line-color);
+        top: 0;
+        bottom: 0;
+        left: 50%; /* Center the line on desktop */
+        margin-left: -1px;
+    }
 
-a:hover {
-    color: #0056b3;
-    text-decoration: none;
-}
+    /* The dot that sits on the timeline line */
+    .timeline-dot {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background-color: white;
+        border: 3px solid var(--primary-color);
+        border-radius: 50%;
+        top: 15px; /* Offset from the top of the item */
+        z-index: 10;
+    }
 
-.section-padding {
-    padding: 60px 0;
-}
+    /* Positioning dots relative to the line (left/right) */
+    .timeline-item:nth-child(odd) .timeline-dot {
+        right: -7px; /* Align dot to the line on the right side */
+    }
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: -7px; /* Align dot to the line on the left side */
+    }
 
-.bg-light {
-    background-color: var(--light-bg);
-}
+    /* Clearfix for floating elements in the timeline */
+    .clearfix::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 
-h2 {
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.2em;
-    border-bottom: 2px solid var(--primary-color);
-    display: block;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 5px;
-}
+    /* --- Mobile Responsiveness for Timeline (max-width: 768px) --- */
+    @media (max-width: 768px) {
+        /* Reposition line to the left for mobile */
+        .timeline-line {
+            left: 30px;
+        }
+        
+        /* Make all items full width and shift content to the right */
+        .timeline-item {
+            width: 100% !important;
+            padding-left: 50px !important; /* Space for line and dot */
+            padding-right: 15px !important;
+            left: 0 !important;
+            float: none !important; /* Stop floating on mobile */
+        }
 
-/* --- HEADER / NAVIGATION --- */
-header {
-    background: var(--dark-text);
-    color: white;
-    padding-top: 30px;
-    min-height: 100px;
-    border-bottom: var(--primary-color) 5px solid;
-    text-align: center;
-}
+        /* Reposition dot on mobile to align with the new line position */
+        .timeline-item .timeline-dot {
+            left: 23px !important;
+            right: auto !important;
+        }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-    color: white;
-}
-
-header p {
-    font-size: 1.1em;
-    margin-top: 5px;
-    margin-bottom: 20px;
-}
-
-header nav a {
-    color: white;
-    padding: 10px 15px;
-    display: inline-block;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-header nav a:hover {
-    background-color: var(--primary-color);
-}
-
-/* --- SKILLS SECTION --- */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    text-align: center;
-}
-
-.skills-grid div {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-top: 3px solid var(--primary-color);
-}
-
-/* --- EXPERIENCE SECTION --- */
-.experience-item {
-    margin-bottom: 40px;
-    padding: 20px;
-    border-left: 5px solid var(--primary-color);
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.experience-item h3 {
-    margin-top: 0;
-    color: var(--dark-text);
-}
-
-.experience-item p {
-    font-style: italic;
-    color: var(--secondary-color);
-}
-
-.experience-item ul {
-    list-style: disc;
-    margin-left: 20px;
-}
-
-/* --- EDUCATION / CERTIFICATION --- */
-.education-item {
-    margin-bottom: 25px;
-    padding: 10px 0;
-    border-bottom: 1px dashed #ccc;
-}
-
-.education-item:last-child {
-    border-bottom: none;
-}
-
-.certification-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px 30px;
-    margin-top: 30px;
-    justify-content: center;
-}
-
-.certification-grid p {
-    background: var(--primary-color);
-    color: white;
-    padding: 10px 15px;
-    border-radius: 25px;
-    font-size: 0.95em;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.certification-grid i {
-    margin-right: 8px;
-}
-
-/* --- FOOTER / KONTAK --- */
-footer {
-    background: var(--dark-text);
-    color: white;
-    text-align: center;
-    padding: 40px 0;
-}
-
-footer h2 {
-    color: white;
-    border-bottom-color: white;
-}
-
-.contact-links a {
-    color: white;
-    margin: 0 15px;
-    font-size: 1.1em;
-    display: inline-block;
-    padding: 5px 0;
-}
-
-.contact-links a:hover {
-    color: var(--primary-color);
-}
-
-.contact-links i {
-    margin-right: 8px;
-}
-
-.copyright {
-    margin-top: 20px;
-    font-size: 0.8em;
-}
+        /* Remove margins that were used for desktop side-by-side layout */
+        .timeline-item:nth-child(odd) .timeline-content,
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+    }
