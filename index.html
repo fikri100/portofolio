@@ -1,321 +1,1272 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark scroll-smooth" lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Nabil Fikri Winaji - Fullstack Development Specialist</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Using the Inter font for a modern, clean look */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f9fc; /* Very light background */
-            color: #1f2937; /* Dark text */
-            scroll-behavior: smooth;
-        }
 
-        /* Primary Accent Classes (Dark Blue) - Represents Professionalism */
-        .primary-color {
-            color: #1e3a8a; /* Blue 800 */
-        }
-        .primary-bg {
-            background-color: #1e3a8a;
-        }
-        .primary-border {
-            border-color: #1e3a8a;
-        }
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description"
+        content="Portfolio of Nabil Fikri Winaji, an Application Development Specialist with 4+ years of experience in Golang, Java, Angular, and Openshift. Discover technical specializations, experience timeline, and academic credentials." />
+    <meta name="keywords"
+        content="Nabil Fikri Winaji, Software Engineer, Fullstack Developer, Golang, Java, Angular, Openshift, System Analyst" />
+    <meta name="author" content="Nabil Fikri Winaji" />
 
-        /* Custom Scroll Indicator for Timeline (Ensuring responsiveness) */
-        .timeline-line {
-            position: absolute;
-            width: 2px;
-            background-color: #bfdbfe; /* Blue 200 */
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1px;
-        }
-        .timeline-dot {
-            position: absolute;
-            width: 14px;
-            height: 14px;
-            background-color: white;
-            border: 3px solid #1e3a8a;
-            border-radius: 50%;
-            top: 15px;
-            z-index: 10;
-        }
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -7px;
-        }
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -7px;
-        }
+    <!-- Google Fonts: Montserrat & Inter -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap"
+        rel="stylesheet" />
 
-        @media (max-width: 768px) {
-            .timeline-line {
-                left: 30px;
-            }
-            .timeline-item {
-                width: 100% !important;
-                padding-left: 50px !important;
-                padding-right: 15px !important;
-                left: 0 !important;
-            }
-            .timeline-item:nth-child(odd) .timeline-content,
-            .timeline-item:nth-child(even) .timeline-content {
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-            }
-            .timeline-item .timeline-dot {
-                left: 23px !important;
-                right: auto !important;
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome for Brand & Extra Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Style Sheet (Loaded after fonts, overrides timeline and glass properties) -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Tailwind Config based on DESIGN.md -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "background": "#131315",
+                        "on-background": "#e5e1e4",
+                        "primary": "#ffb2bf",
+                        "primary-container": "#f65881",
+                        "on-primary": "#660027",
+                        "on-primary-container": "#5a0021",
+                        "inverse-primary": "#b22350",
+                        "secondary": "#ffb4ab",
+                        "on-secondary": "#670508",
+                        "secondary-container": "#8a221d",
+                        "on-secondary-container": "#ff9f94",
+                        "tertiary": "#d2bbff",
+                        "on-tertiary": "#3f008e",
+                        "tertiary-container": "#a476ff",
+                        "on-tertiary-container": "#36007d",
+                        "surface": "#131315",
+                        "surface-dim": "#131315",
+                        "surface-bright": "#39393b",
+                        "surface-container-lowest": "#0e0e10",
+                        "surface-container-low": "#1c1b1d",
+                        "surface-container": "#201f22",
+                        "surface-container-high": "#2a2a2c",
+                        "surface-container-highest": "#353437",
+                        "outline": "#a7898d",
+                        "outline-variant": "#584144",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#ffd9de",
+                        "primary-fixed-dim": "#ffb2bf",
+                        "on-primary-fixed": "#3f0015",
+                        "on-primary-fixed-variant": "#90003a",
+                        "secondary-fixed": "#ffdad6",
+                        "secondary-fixed-dim": "#ffb4ab",
+                        "on-secondary-fixed": "#410002",
+                        "on-secondary-fixed-variant": "#87201b",
+                        "tertiary-fixed": "#eaddff",
+                        "tertiary-fixed-dim": "#d2bbff",
+                        "on-tertiary-fixed": "#25005a",
+                        "on-tertiary-fixed-variant": "#5a00c6",
+                        "on-surface": "#e5e1e4",
+                        "on-surface-variant": "#dfbec3",
+                        "inverse-surface": "#e5e1e4",
+                        "inverse-on-surface": "#313032"
+                    },
+                    borderRadius: {
+                        "sm": "0.25rem",
+                        "DEFAULT": "0.5rem",
+                        "md": "0.75rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "section-gap": "120px",
+                        "margin-mobile": "24px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "margin-desktop": "80px",
+                        "stack-lg": "32px"
+                    },
+                    fontFamily: {
+                        "display": ["Montserrat", "sans-serif"],
+                        "headline": ["Montserrat", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
             }
         }
-    </style>
+    </script>
 </head>
-<body>
 
-    <!-- Navigation Bar (Sticky) -->
-    <header class="sticky top-0 z-50 shadow-md primary-bg text-white">
-        <div class="container mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center">
-            <div class="text-xl font-bold tracking-wider">NABIL FIKRI WINAJI</div>
-            <nav class="space-x-4 mt-2 sm:mt-0">
-                <a href="#hero" class="hover:text-blue-300 transition duration-300">Home</a>
-                <a href="#skills" class="hover:text-blue-300 transition duration-300">Skills</a>
-                <a href="#experience" class="hover:text-blue-300 transition duration-300">Experience</a>
-                <a href="#education" class="hover:text-blue-300 transition duration-300">Education</a>
-            </nav>
+<body class="antialiased relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow-primary top-0 left-0 -translate-x-1/3 -translate-y-1/3"></div>
+    <div class="ambient-glow-secondary top-[40%] right-0 translate-x-1/4"></div>
+    <div class="ambient-glow-primary bottom-0 left-0 -translate-x-1/4 translate-y-1/4"></div>
+
+    <!-- Top Navigation Bar -->
+    <nav class="bg-background/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/10">
+        <div class="flex justify-between items-center max-w-[1200px] mx-auto px-6 md:px-12 h-20">
+            <!-- Brand Logo -->
+            <a class="flex items-center gap-3 hover:opacity-85 transition-opacity cursor-pointer" href="#intro">
+                <span class="material-symbols-outlined text-primary text-2xl font-bold">terminal</span>
+                <span class="text-xl font-display font-extrabold tracking-tight text-on-background uppercase">Nabil
+                    Fikri</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-primary font-semibold text-sm tracking-wide transition-colors font-body"
+                    href="#intro">Intro</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors text-sm tracking-wide font-body"
+                    href="#skills">Skills</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors text-sm tracking-wide font-body"
+                    href="#work">Work</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors text-sm tracking-wide font-body"
+                    href="#projects">Projects</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors text-sm tracking-wide font-body"
+                    href="#education">Education</a>
+            </div>
+
+            <!-- Header CTA Button -->
+            <div class="hidden md:block">
+                <a class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg btn-secondary text-sm font-semibold tracking-wide font-body"
+                    href="#contact">
+                    Contact Me
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button id="menu-toggle-btn"
+                class="md:hidden text-on-surface-variant hover:text-primary transition-colors focus:outline-none"
+                aria-label="Toggle Menu">
+                <span class="material-symbols-outlined text-2xl">menu</span>
+            </button>
         </div>
-    </header>
+    </nav>
 
-    <main class="container mx-auto px-4">
+    <!-- Mobile Drawer Overlay -->
+    <div id="mobile-menu-drawer"
+        class="fixed inset-0 bg-background/95 z-50 hidden flex flex-col p-8 transition-transform duration-300">
+        <div class="flex justify-between items-center mb-12">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-2xl font-bold">terminal</span>
+                <span class="text-xl font-display font-extrabold text-on-background">Nabil Fikri</span>
+            </div>
+            <button id="menu-close-btn"
+                class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col gap-6 text-center text-lg font-medium">
+            <a class="py-2 text-primary hover:text-primary font-headline" href="#intro"
+                onclick="closeDrawer()">Intro</a>
+            <a class="py-2 text-on-surface-variant hover:text-primary font-headline" href="#skills"
+                onclick="closeDrawer()">Skills</a>
+            <a class="py-2 text-on-surface-variant hover:text-primary font-headline" href="#work"
+                onclick="closeDrawer()">Work Experience</a>
+            <a class="py-2 text-on-surface-variant hover:text-primary font-headline" href="#projects"
+                onclick="closeDrawer()">Projects</a>
+            <a class="py-2 text-on-surface-variant hover:text-primary font-headline" href="#education"
+                onclick="closeDrawer()">Education</a>
+            <a class="py-4 mt-6 btn-primary rounded-lg font-semibold inline-block" href="#contact"
+                onclick="closeDrawer()">Contact Me</a>
+        </div>
+    </div>
 
-        <!-- HERO SECTION (About Me) -->
-        <section id="hero" class="py-16 md:py-24 text-center">
-            <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg border-t-4 primary-border">
-                <div class="flex flex-col md:flex-row items-center md:text-left">
-                    <!-- Profile Picture (Using the uploaded filename) -->
-                    <img src="foto.png" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/150x150/f0f0f0/333?text=Nabil';"
-                         alt="Nabil Fikri Winaji Profile Picture" 
-                         class="w-36 h-36 object-cover rounded-full ring-4 ring-blue-500 mb-6 md:mb-0 md:mr-8 shadow-md">
-                    
-                    <div>
-                        <h1 class="text-3xl md:text-4xl font-extrabold primary-color mb-1">
-                            NABIL FIKRI WINAJI
+    <!-- Main Content Area -->
+    <main class="pt-28 pb-12">
+
+        <!-- HERO SECTION -->
+        <section
+            class="max-w-[1200px] mx-auto px-6 md:px-12 py-16 md:py-24 min-h-[85vh] flex flex-col justify-center relative"
+            id="intro">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Hero Content Column -->
+                <div class="lg:col-span-7 flex flex-col gap-8 z-10 order-2 lg:order-1 mt-6 lg:mt-0">
+                    <div class="flex flex-col gap-4">
+                        <span
+                            class="text-primary text-xs font-semibold tracking-widest uppercase flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
+                            <span class="w-6 h-px bg-primary/45"></span>
+                            Available for new opportunities
+                        </span>
+                        <h1
+                            class="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-on-background leading-tight">
+                            Nabil Fikri Winaji <br />
+                            <span class="gradient-text">Fullstack &amp; System Analyst</span>
                         </h1>
-                        <p class="text-xl font-semibold text-gray-600 mb-4">
-                            Application Development Specialist
-                        </p>
-                        <p class="text-base text-gray-700 leading-relaxed">
-                            I am a software engineer with over 4+ years of fullstack development experience using Golang, Java, and Angular. Proficient in Openshift or Jenkins deployment and Kibana monitoring. Having an 4+ years experience software developer has enriched my understanding of technical (coding, debugging, etc), problem solving and working in a team. I have strong skills in OOP (Object Oriented Programming), communication, can easily adapt to work, and the environment. My skills in adapting to ever-evolving technology allow me to engage in real-world projects with passion and dedication.
-                        </p>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- SKILLS SECTION -->
-        <section id="skills" class="py-16 bg-white rounded-xl shadow-lg mb-12">
-            <h2 class="text-3xl font-bold text-center mb-10 primary-color">Technical Skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-5xl mx-auto">
+                    <p class="text-base md:text-lg text-on-surface-variant leading-relaxed font-body">
+                        I am a software engineer with over <span class="gradient-text font-semibold">4+ years of
+                            fullstack development experience</span> using <span
+                            class="text-tertiary font-semibold">Golang, Java, and Angular</span>. Proficient in
+                        Openshift, Jenkins deployment, and Kibana monitoring.
+                    </p>
+                    <p class="text-sm md:text-base text-on-surface-variant/80 leading-relaxed font-body -mt-2">
+                        My 4+ years as a developer has enriched my understanding of technical design, coding, debugging,
+                        and problem solving in agile team setups. Proficient in Object Oriented Programming (OOP),
+                        strong in collaborative communication, and exceptionally adaptive to new environments and
+                        technologies.
+                    </p>
 
-                <!-- Skill Card: Backend -->
-                <div class="skill-card text-center p-4 rounded-lg shadow-md border-t-4 border-blue-400">
-                    <i class="fas fa-server text-3xl mb-2 primary-color"></i>
-                    <h3 class="font-bold text-lg mb-1">Backend</h3>
-                    <p class="text-sm text-gray-600">Golang, Java, PHP, Python</p>
-                </div>
+                    <!-- CTA Actions -->
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a class="btn-primary px-8 py-4 rounded-lg text-sm font-semibold tracking-wide flex items-center gap-2 font-body"
+                            href="#contact">
+                            Work with me
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                        <a class="btn-secondary px-8 py-4 rounded-lg text-sm font-semibold tracking-wide flex items-center gap-2 font-body group"
+                            href="#skills">
+                            Explore Skills
+                            <span
+                                class="material-symbols-outlined text-[18px] group-hover:translate-y-1 transition-transform">south</span>
+                        </a>
+                    </div>
 
-                <!-- Skill Card: Frontend -->
-                <div class="skill-card text-center p-4 rounded-lg shadow-md border-t-4 border-blue-400">
-                    <i class="fas fa-desktop text-3xl mb-2 primary-color"></i>
-                    <h3 class="font-bold text-lg mb-1">Frontend</h3>
-                    <p class="text-sm text-gray-600">Angular, HTML, Java Zkoss</p>
-                </div>
-
-                <!-- Skill Card: Database -->
-                <div class="skill-card text-center p-4 rounded-lg shadow-md border-t-4 border-blue-400">
-                    <i class="fas fa-database text-3xl mb-2 primary-color"></i>
-                    <h3 class="font-bold text-lg mb-1">Database</h3>
-                    <p class="text-sm text-gray-600">MySQL, PostgreSQL, SQL Server, RDBMS</p>
-                </div>
-
-                <!-- Skill Card: DevOps -->
-                <div class="skill-card text-center p-4 rounded-lg shadow-md border-t-4 border-blue-400">
-                    <i class="fas fa-cloud-upload-alt text-3xl mb-2 primary-color"></i>
-                    <h3 class="font-bold text-lg mb-1">DevOps</h3>
-                    <p class="text-sm text-gray-600">Jenkins, Openshift</p>
-                </div>
-
-                <!-- Skill Card: UI/UX -->
-                <div class="skill-card text-center p-4 rounded-lg shadow-md border-t-4 border-blue-400">
-                    <i class="fas fa-palette text-3xl mb-2 primary-color"></i>
-                    <h3 class="font-bold text-lg mb-1">UI/UX</h3>
-                    <p class="text-sm text-gray-600">Figma</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- EXPERIENCE SECTION (Timeline) -->
-        <section id="experience" class="py-16">
-            <h2 class="text-3xl font-bold text-center mb-16 primary-color">Work Experience</h2>
-            
-            <div class="timeline relative max-w-6xl mx-auto">
-                <!-- Vertical Timeline Line -->
-                <div class="timeline-line hidden md:block"></div>
-
-                <!-- ITEM 1: PT Surya Madistrindo -->
-                <div class="timeline-item w-full md:w-1/2 md:pr-10 mb-8 md:mb-12 relative md:float-left">
-                    <span class="timeline-dot hidden md:block"></span>
-                    <div class="timeline-content bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-blue-500">
-                        <div class="timeline-date font-semibold text-sm text-gray-500 mb-1">June 2022 – Present</div>
-                        <h3 class="text-xl font-bold primary-color">Application Development Specialist</h3>
-                        <h4 class="text-base font-semibold text-gray-800 mb-3">PT Surya Madistrindo subsidiary PT. Gudang Garam Tbk – Jakarta, Indonesia</h4>
-                        <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm">
-                            <li>Impact analysis and sizing new features and new apps.</li>
-                            <li>Plan, collaborate, and develop applications, mainly with Java or Golang for backend and Angular, Zkoss, or any Typescript language for frontend.</li>
-                            <li>Perform unit testing, support QA Team testing, and fixing bugs.</li>
-                            <li>Create reports using SSRS, deploy apps to production using Openshift.</li>
-                            <li>Handsover apps to Supporting Team and monitoring application using Kibana.</li>
-                        </ul>
-                        <p class="mt-3 text-xs italic text-gray-500">Project: E-Procurement, Distribution & Field Marketing System, Salesmanship, Riders, Salesmanship.</p>
+                    <!-- Contact details and Social Anchor Row -->
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mt-6 pt-4 border-t border-outline-variant/15 text-on-surface-variant">
+                        <div class="flex gap-4">
+                            <a aria-label="GitHub" class="hover:text-primary transition-colors text-xl"
+                                href="https://github.com/fikri100" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a aria-label="Email" class="hover:text-primary transition-colors text-xl"
+                                href="mailto:fikri.winaji@gmail.com">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a aria-label="Phone" class="hover:text-primary transition-colors text-xl"
+                                href="tel:082232019404">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
+                        <span class="hidden sm:inline w-px h-6 bg-outline-variant/35"></span>
+                        <span class="text-xs md:text-sm font-semibold flex items-center gap-2 font-body">
+                            <span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+                            Bekasi, West Java, Indonesia
+                        </span>
                     </div>
                 </div>
 
-                <!-- ITEM 2: Telkomsel -->
-                <div class="timeline-item w-full md:w-1/2 md:pl-10 mb-8 md:mb-12 relative md:float-right">
-                    <span class="timeline-dot hidden md:block"></span>
-                    <div class="timeline-content bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-blue-500">
-                        <div class="timeline-date font-semibold text-sm text-gray-500 mb-1">August 2020 – June 2022</div>
-                        <h3 class="text-xl font-bold primary-color">System Analyst</h3>
-                        <h4 class="text-base font-semibold text-gray-800 mb-3">Telkomsel – Jakarta, Indonesia</h4>
-                        <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm">
-                            <li>Analyze user need and implement it to the document requirement.</li>
-                            <li>Create mockup of the application using Figma and Entity Relationship Diagram.</li>
-                            <li>Manage the Product Data with Oracle and SQL Server Management and analyze data transaction.</li>
-                            <li>Handling B2C resource ticketing request by business team.</li>
-                        </ul>
-                        <p class="mt-3 text-xs italic text-gray-500">Project: Monitoring MSISDN, Product Modeling, PES Aggregator, Loena.</p>
-                    </div>
-                </div>
-                
-                <div class="clearfix hidden md:block"></div>
-                
-                <!-- ITEM 3: DOT Indonesia -->
-                <div class="timeline-item w-full md:w-1/2 md:pr-10 mb-8 md:mb-12 relative md:float-left">
-                    <span class="timeline-dot hidden md:block"></span>
-                    <div class="timeline-content bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-blue-500">
-                        <div class="timeline-date font-semibold text-sm text-gray-500 mb-1">May 2020 – August 2020</div>
-                        <h3 class="text-xl font-bold primary-color">Quality Assurance Intern</h3>
-                        <h4 class="text-base font-semibold text-gray-800 mb-3">DOT Indonesia – Malang, Indonesia</h4>
-                        <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm">
-                            <li>Create scenario testing, perform functional testing and integration testing.</li>
-                            <li>Create automation script for testing and write manual book for user.</li>
-                        </ul>
-                        <p class="mt-3 text-xs italic text-gray-500">Project: Ayomall, Energas.</p>
+                <!-- Profile Picture Grid Column -->
+                <div class="lg:col-span-5 relative z-10 order-1 lg:order-2 flex justify-center lg:justify-end">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-[380px] lg:h-[380px]">
+                        <!-- Decorative revolving circles -->
+                        <div class="absolute inset-0 rounded-full border border-primary/15 scale-105 animate-spin-slow">
+                        </div>
+                        <div
+                            class="absolute inset-0 rounded-full border border-tertiary/15 scale-110 animate-spin-slow-reverse">
+                        </div>
+                        <div class="absolute inset-2 rounded-full border-2 border-dashed border-secondary/10 scale-95">
+                        </div>
+
+                        <!-- Core Profile Image Shell -->
+                        <div
+                            class="w-full h-full rounded-full overflow-hidden glass-panel p-2 relative z-10 shadow-2xl">
+                            <div class="w-full h-full rounded-full overflow-hidden bg-surface-container">
+                                <img id="profile-pic" alt="Nabil Fikri Winaji Portrait"
+                                    class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+                                    src="foto.png"
+                                    onerror="this.onerror=null; this.src='https://placehold.co/400x400/201f22/ffb2bf?text=Nabil+Fikri';" />
+                            </div>
+                        </div>
+
+                        <!-- Floating Glass Experience Badge -->
+                        <div
+                            class="absolute -bottom-2 -left-4 glass-panel px-5 py-3 rounded-xl flex items-center gap-3.5 z-20 shadow-2xl animate-float">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined text-[22px] font-bold">verified</span>
+                            </div>
+                            <div>
+                                <p class="text-xs text-on-surface-variant font-medium font-body leading-none mb-1">
+                                    Experience</p>
+                                <p class="text-lg font-headline font-extrabold text-primary-container leading-none">4+
+                                    Years</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
-            <div class="clearfix"></div>
         </section>
 
-        <!-- EDUCATION & CERTIFICATION SECTION -->
-        <section id="education" class="py-16 bg-white rounded-xl shadow-lg mb-12">
-            <h2 class="text-3xl font-bold text-center mb-10 primary-color">Education & Certifications</h2>
+        <!-- Divider Line -->
+        <div class="max-w-[1200px] mx-auto px-6 md:px-12 py-8">
+            <div class="h-px w-full bg-gradient-to-r from-transparent via-outline-variant/20 to-transparent"></div>
+        </div>
+
+        <!-- TECHNICAL SKILLS SECTION -->
+        <section class="max-w-[1200px] mx-auto px-6 md:px-12 py-16 scroll-mt-24" id="skills">
+            <div class="flex flex-col gap-3 mb-12 text-center lg:text-left">
+                <h2 class="text-3xl font-display font-extrabold text-on-background">Technical Specializations</h2>
+                <p class="text-base text-on-surface-variant max-w-xl font-body">My structured proficiencies in
+                    development stacks, database systems, architecture, and production environment tools.</p>
+            </div>
+
+            <!-- Skills Bento Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Backend Development Card -->
+                <div
+                    class="glass-panel p-8 rounded-2xl flex flex-col gap-6 group hover:bg-surface-container/60 hover:-translate-y-1">
+                    <div class="flex items-center justify-between">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-2xl">dns</span>
+                        </div>
+                        <span
+                            class="text-xs font-semibold text-primary/80 bg-primary/5 px-2.5 py-1 rounded-full uppercase tracking-wider font-body">Core</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-headline font-bold text-on-background mb-2">Backend Engineering</h3>
+                        <p class="text-sm text-on-surface-variant font-body">Building robust, highly-concurrent, and
+                            type-safe server logic and API infrastructures.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto pt-4">
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-primary font-body">Golang</span>
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-primary font-body">Java</span>
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface font-body">PHP</span>
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface font-body">Python</span>
+                    </div>
+                </div>
+
+                <!-- Frontend Development Card -->
+                <div
+                    class="glass-panel p-8 rounded-2xl flex flex-col gap-6 group hover:bg-surface-container/60 hover:-translate-y-1">
+                    <div class="flex items-center justify-between">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-2xl">devices</span>
+                        </div>
+                        <span
+                            class="text-xs font-semibold text-tertiary/80 bg-tertiary/5 px-2.5 py-1 rounded-full uppercase tracking-wider font-body">Core</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-headline font-bold text-on-background mb-2">Frontend &amp; UI</h3>
+                        <p class="text-sm text-on-surface-variant font-body">Designing sleek, fluid responsive client
+                            interfaces and high-performance SPA architectures.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto pt-4">
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-tertiary font-body">Angular</span>
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface font-body">Java
+                            Zkoss</span>
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface font-body">TypeScript</span>
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface font-body">HTML
+                            &amp; CSS</span>
+                    </div>
+                </div>
+
+                <!-- Database Management Card -->
+                <div
+                    class="glass-panel p-8 rounded-2xl flex flex-col gap-6 group hover:bg-surface-container/60 hover:-translate-y-1">
+                    <div class="flex items-center justify-between">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-2xl">database</span>
+                        </div>
+                        <span
+                            class="text-xs font-semibold text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded-full uppercase tracking-wider font-body">Supporting</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-headline font-bold text-on-background mb-2">Database Management</h3>
+                        <p class="text-sm text-on-surface-variant font-body">Architecting relational schemas, indexing,
+                            and optimizing transactional performance in enterprise databases.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto pt-4">
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface font-body">PostgreSQL</span>
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface font-body">MySQL</span>
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface font-body">SQL
+                            Server</span>
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface font-body">Oracle
+                            RDBMS</span>
+                    </div>
+                </div>
+
+                <!-- DevOps Card -->
+                <div
+                    class="glass-panel p-8 rounded-2xl flex flex-col gap-6 group hover:bg-surface-container/60 hover:-translate-y-1 md:col-span-2 lg:col-span-2">
+                    <div class="flex items-center justify-between">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-2xl">cloud_sync</span>
+                        </div>
+                        <span
+                            class="text-xs font-semibold text-primary/80 bg-primary/5 px-2.5 py-1 rounded-full uppercase tracking-wider font-body">Integration</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-headline font-bold text-on-background mb-2">DevOps, Deployment &amp;
+                            Monitoring</h3>
+                        <p class="text-sm text-on-surface-variant font-body max-w-xl">Orchestrating robust pipelines,
+                            shipping production packages to microservice platforms, and tracking real-time application
+                            health metrics.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto pt-4">
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-primary font-body">Openshift
+                            Container Platform</span>
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-primary font-body">Kibana
+                            Monitoring</span>
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface font-body">Jenkins
+                            CI/CD</span>
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface font-body">SSRS
+                            Reports</span>
+                    </div>
+                </div>
+
+                <!-- UI/UX Card -->
+                <div
+                    class="glass-panel p-8 rounded-2xl flex flex-col gap-6 group hover:bg-surface-container/60 hover:-translate-y-1">
+                    <div class="flex items-center justify-between">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-2xl">palette</span>
+                        </div>
+                        <span
+                            class="text-xs font-semibold text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded-full uppercase tracking-wider font-body">Creative</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-headline font-bold text-on-background mb-2">Design &amp; Prototyping
+                        </h3>
+                        <p class="text-sm text-on-surface-variant font-body">Fostering cross-disciplinary alignment
+                            through structural layouts and rapid component mapping.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto pt-4">
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface font-body">Figma</span>
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface font-body">Mockups</span>
+                        <span
+                            class="skill-chip px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface font-body">ER
+                            Diagrams</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div class="max-w-[1200px] mx-auto px-6 md:px-12 py-8">
+            <div class="h-px w-full bg-gradient-to-r from-transparent via-outline-variant/20 to-transparent"></div>
+        </div>
+
+        <!-- WORK EXPERIENCE SECTION (Timeline) -->
+        <section class="max-w-[1200px] mx-auto px-6 md:px-12 py-16 scroll-mt-24" id="work">
+            <div class="flex flex-col gap-3 mb-16 text-center lg:text-left">
+                <h2 class="text-3xl font-display font-extrabold text-on-background">Work Experience</h2>
+                <p class="text-base text-on-surface-variant max-w-xl font-body">Chronological breakdown of my
+                    achievements in system analysis, full-stack application development, and software validation.</p>
+            </div>
+
+            <!-- Glowing Timeline Container -->
+            <div class="timeline-container max-w-[1100px] mx-auto">
+                <!-- Center vertical line with gradient glow -->
+                <div class="timeline-line-glow"></div>
+
+                <!-- Chronological Items -->
+                <div class="space-y-12 relative">
+
+                    <!-- ITEM 1: PT Surya Madistrindo -->
+                    <div class="timeline-item flex flex-col md:flex-row relative">
+                        <!-- Timeline active node -->
+                        <div class="timeline-node"></div>
+
+                        <!-- Left blank gap or spacing container -->
+                        <div class="hidden md:flex md:w-1/2 justify-end pr-12 text-right pt-2 flex-col">
+                            <span class="text-sm font-semibold tracking-wider text-primary font-body">June 2022 –
+                                Present</span>
+                            <span class="text-xs text-on-surface-variant/75 font-body">Jakarta, Indonesia
+                                (Active)</span>
+                        </div>
+
+                        <!-- Right card content -->
+                        <div class="w-full md:w-1/2 pl-8 md:pl-12">
+                            <div class="glass-panel p-6 md:p-8 rounded-2xl hover:border-primary-container/30">
+                                <span class="text-xs font-semibold text-primary md:hidden block mb-2 font-body">June
+                                    2022 – Present • Jakarta</span>
+                                <h3 class="text-xl md:text-2xl font-headline font-bold text-on-background">Application
+                                    Development Specialist</h3>
+                                <h4 class="text-sm font-semibold text-tertiary mt-1 mb-4 font-body">PT Surya Madistrindo
+                                    (subsidiary of PT. Gudang Garam Tbk)</h4>
+
+                                <ul class="space-y-2.5 text-sm text-on-surface-variant font-body list-inside">
+                                    <li class="flex items-start gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[16px] mt-0.5 select-none">chevron_right</span>
+                                        <span>Conducted impact analysis and structured task sizing for upcoming features
+                                            and new business applications.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[16px] mt-0.5 select-none">chevron_right</span>
+                                        <span>Collaborated across teams to plan and build core corporate applications
+                                            utilizing Java and Golang backends alongside Angular frontends.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[16px] mt-0.5 select-none">chevron_right</span>
+                                        <span>Conducted extensive unit testing, coordinated closely with QA teams during
+                                            functional cycles, and rapidly resolved complex production bugs.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[16px] mt-0.5 select-none">chevron_right</span>
+                                        <span>Created complex business reports using SSRS and orchestrated containerized
+                                            application deployments to live environments via Openshift.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[16px] mt-0.5 select-none">chevron_right</span>
+                                        <span>Coordinated detailed system hands-overs to support personnel and
+                                            established monitoring dashboards using Kibana to track health logs.</span>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 2: Telkomsel -->
+                    <div class="timeline-item flex flex-col md:flex-row relative">
+                        <!-- Timeline active node -->
+                        <div class="timeline-node"></div>
+
+                        <!-- Left blank gap or spacing container (shown left on desktop) -->
+                        <div
+                            class="w-full md:w-1/2 pr-8 md:pr-12 text-left md:text-right order-2 md:order-1 pl-8 md:pl-0">
+                            <div class="glass-panel p-6 md:p-8 rounded-2xl hover:border-primary-container/30">
+                                <span class="text-xs font-semibold text-primary md:hidden block mb-2 font-body">August
+                                    2020 – June 2022 • Jakarta</span>
+                                <h3 class="text-xl md:text-2xl font-headline font-bold text-on-background">System
+                                    Analyst</h3>
+                                <h4 class="text-sm font-semibold text-tertiary mt-1 mb-4 font-body">Telkomsel</h4>
+
+                                <ul class="space-y-2.5 text-sm text-on-surface-variant font-body list-inside text-left">
+                                    <li class="flex items-start gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[16px] mt-0.5 select-none">chevron_right</span>
+                                        <span>Analyzed dynamic business requirements to synthesize comprehensive
+                                            functional specification documentation.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[16px] mt-0.5 select-none">chevron_right</span>
+                                        <span>Designed high-fidelity application mockups in Figma alongside detailed
+                                            Entity Relationship Diagrams (ERDs).</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[16px] mt-0.5 select-none">chevron_right</span>
+                                        <span>Managed enterprise product databases using Oracle and Microsoft SQL
+                                            Server, performing key queries to analyze transaction integrity.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[16px] mt-0.5 select-none">chevron_right</span>
+                                        <span>Resolved critical B2C ticketing queues and resource requests submitted by
+                                            the commercial business team.</span>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <!-- Right spacing with date on desktop -->
+                        <div class="hidden md:flex md:w-1/2 justify-start pl-12 pt-2 flex-col order-1 md:order-2">
+                            <span class="text-sm font-semibold tracking-wider text-primary font-body">August 2020 – June
+                                2022</span>
+                            <span class="text-xs text-on-surface-variant/75 font-body">Jakarta, Indonesia</span>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 3: DOT Indonesia -->
+                    <div class="timeline-item flex flex-col md:flex-row relative">
+                        <!-- Timeline active node -->
+                        <div class="timeline-node"></div>
+
+                        <!-- Left spacing with date on desktop -->
+                        <div class="hidden md:flex md:w-1/2 justify-end pr-12 text-right pt-2 flex-col">
+                            <span class="text-sm font-semibold tracking-wider text-primary font-body">May 2020 – August
+                                2020</span>
+                            <span class="text-xs text-on-surface-variant/75 font-body">Malang, East Java</span>
+                        </div>
+
+                        <!-- Right card content -->
+                        <div class="w-full md:w-1/2 pl-8 md:pl-12">
+                            <div class="glass-panel p-6 md:p-8 rounded-2xl hover:border-primary-container/30">
+                                <span class="text-xs font-semibold text-primary md:hidden block mb-2 font-body">May 2020
+                                    – August 2020 • Malang</span>
+                                <h3 class="text-xl md:text-2xl font-headline font-bold text-on-background">Quality
+                                    Assurance Intern</h3>
+                                <h4 class="text-sm font-semibold text-tertiary mt-1 mb-4 font-body">DOT Indonesia</h4>
+
+                                <ul class="space-y-2.5 text-sm text-on-surface-variant font-body list-inside">
+                                    <li class="flex items-start gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[16px] mt-0.5 select-none">chevron_right</span>
+                                        <span>Drafted and executed custom scenario matrixes for functional and
+                                            end-to-end integration validation cycles.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[16px] mt-0.5 select-none">chevron_right</span>
+                                        <span>Wrote automated testing regression scripts to validate API behaviors under
+                                            distinct load parameters.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[16px] mt-0.5 select-none">chevron_right</span>
+                                        <span>Authored comprehensive operational guides and user handbooks for modular
+                                            feature sets.</span>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div class="max-w-[1200px] mx-auto px-6 md:px-12 py-8">
+            <div class="h-px w-full bg-gradient-to-r from-transparent via-outline-variant/20 to-transparent"></div>
+        </div>
+
+        <!-- PROJECTS SECTION -->
+        <section class="max-w-[1200px] mx-auto px-6 md:px-12 py-16 scroll-mt-24" id="projects">
+            <div class="flex flex-col gap-3 mb-16 text-center lg:text-left">
+                <h2 class="text-3xl font-display font-extrabold text-on-background">Key Projects</h2>
+                <p class="text-base text-on-surface-variant max-w-xl font-body">A curated list of high-impact internal
+                    enterprise systems I have architected and developed.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Project 1 -->
+                <div
+                    class="glass-panel p-8 rounded-2xl flex flex-col gap-4 group hover:bg-surface-container/60 hover:-translate-y-1">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-2xl">shopping_cart</span>
+                    </div>
+                    <div>
+                        <span
+                            class="text-xs font-bold text-primary uppercase tracking-wider font-body mb-1 block">Primary
+                            Impact</span>
+                        <h3 class="text-xl font-headline font-bold text-on-background mb-2 leading-tight">Enterprise
+                            Procurement &amp; Vendor Management</h3>
+                        <p class="text-sm text-on-surface-variant font-body mb-3">Automation of the procurement cycle (RFI to PO) and vendor lifecycle management.</p>
+                        <p class="text-sm text-on-surface/90 font-body"><span
+                                class="font-semibold text-primary/80">Focus:</span> Optimizing expenditure efficiency, securing financial data, and automating multi-level approval workflows.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="glass-panel p-8 rounded-2xl flex flex-col gap-4 group hover:bg-surface-container/60 hover:-translate-y-1">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-2xl">monitoring</span>
+                    </div>
+                    <div>
+                        <span
+                            class="text-xs font-bold text-primary uppercase tracking-wider font-body mb-1 block">Primary
+                            Impact</span>
+                        <h3 class="text-xl font-headline font-bold text-on-background mb-2 leading-tight">Integrated
+                            Sales Force Automation &amp; Market Intel</h3>
+                        <p class="text-sm text-on-surface-variant font-body mb-3">Real-time tracking of sales activities, promotion management, and systematic competitor analysis.</p>
+                        <p class="text-sm text-on-surface/90 font-body"><span
+                                class="font-semibold text-primary/80">Focus:</span> Synchronizing massive field data to central servers in real-time to achieve sales targets.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div
+                    class="glass-panel p-8 rounded-2xl flex flex-col gap-4 group hover:bg-surface-container/60 hover:-translate-y-1">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-2xl">warehouse</span>
+                    </div>
+                    <div>
+                        <span
+                            class="text-xs font-bold text-primary uppercase tracking-wider font-body mb-1 block">Primary
+                            Impact</span>
+                        <h3 class="text-xl font-headline font-bold text-on-background mb-2 leading-tight">Scalable
+                            Warehouse Inventory &amp; Operations</h3>
+                        <p class="text-sm text-on-surface-variant font-body mb-3">Optimizing inbound and outbound logistics processes in warehouses with high inventory data accuracy.</p>
+                        <p class="text-sm text-on-surface/90 font-body"><span
+                                class="font-semibold text-primary/80">Focus:</span> Ensuring smooth supply chain operations with fast database queries to prevent stock discrepancies.</p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div
+                    class="glass-panel p-8 rounded-2xl flex flex-col gap-4 group hover:bg-surface-container/60 hover:-translate-y-1">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-2xl">fact_check</span>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-tertiary uppercase tracking-wider font-body mb-1 block">Mid
+                            Impact</span>
+                        <h3 class="text-xl font-headline font-bold text-on-background mb-2 leading-tight">Retail Audit
+                            &amp; Inventory Monitoring System</h3>
+                        <p class="text-sm text-on-surface-variant font-body mb-3">Outlet-level stock management, field visit audits, and distribution/promotion data validation.</p>
+                        <p class="text-sm text-on-surface/90 font-body"><span
+                                class="font-semibold text-tertiary/80">Focus:</span> Guaranteeing product availability in the market through accurate field validation and responsive database architecture.</p>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div
+                    class="glass-panel p-8 rounded-2xl flex flex-col gap-4 group hover:bg-surface-container/60 hover:-translate-y-1">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-2xl">insights</span>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-tertiary uppercase tracking-wider font-body mb-1 block">Mid
+                            Impact</span>
+                        <h3 class="text-xl font-headline font-bold text-on-background mb-2 leading-tight">Market
+                            Intelligence &amp; Competitor Dashboard</h3>
+                        <p class="text-sm text-on-surface-variant font-body mb-3">Analytics platform recording real-time competitor movements to support business decision-making.</p>
+                        <p class="text-sm text-on-surface/90 font-body"><span
+                                class="font-semibold text-tertiary/80">Focus:</span> Processing big data and presenting it in the form of high-performance interactive analytics dashboards.</p>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div
+                    class="glass-panel p-8 rounded-2xl flex flex-col gap-4 group hover:bg-surface-container/60 hover:-translate-y-1">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-2xl">local_shipping</span>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-tertiary uppercase tracking-wider font-body mb-1 block">Mid
+                            Impact</span>
+                        <h3 class="text-xl font-headline font-bold text-on-background mb-2 leading-tight">Marketing
+                            Asset Distribution &amp; Tracking</h3>
+                        <p class="text-sm text-on-surface-variant font-body mb-3">Digitalization of marketing promotional material distribution to outlets and communities.</p>
+                        <p class="text-sm text-on-surface/90 font-body"><span
+                                class="font-semibold text-tertiary/80">Focus:</span> Securing the allocation of external marketing assets and systematically tracking distribution logistics.</p>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div
+                    class="glass-panel p-8 rounded-2xl flex flex-col gap-4 group hover:bg-surface-container/60 hover:-translate-y-1 md:col-span-1 lg:col-span-1">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-2xl">groups</span>
+                    </div>
+                    <div>
+                        <span
+                            class="text-xs font-bold text-secondary uppercase tracking-wider font-body mb-1 block">Internal
+                            Impact</span>
+                        <h3 class="text-xl font-headline font-bold text-on-background mb-2 leading-tight">Employee
+                            Performance Metrics Platform</h3>
+                        <p class="text-sm text-on-surface-variant font-body mb-3">KPI assessment system based on dynamic parameters to objectively determine Top Talent.</p>
+                        <p class="text-sm text-on-surface/90 font-body"><span
+                                class="font-semibold text-secondary/80">Focus:</span> Automating complex performance evaluation processes using robust backend logic.</p>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div
+                    class="glass-panel p-8 rounded-2xl flex flex-col gap-4 group hover:bg-surface-container/60 hover:-translate-y-1 md:col-span-1 lg:col-span-2">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-2xl">task</span>
+                    </div>
+                    <div>
+                        <span
+                            class="text-xs font-bold text-secondary uppercase tracking-wider font-body mb-1 block">Internal
+                            Impact</span>
+                        <h3 class="text-xl font-headline font-bold text-on-background mb-2 leading-tight">Integrated
+                            Workspace &amp; Task Management Portal</h3>
+                        <p class="text-sm text-on-surface-variant font-body mb-3">Integrated internal portal centralizing task management, facility allocation, and employee feedback systems.</p>
+                        <p class="text-sm text-on-surface/90 font-body"><span
+                                class="font-semibold text-secondary/80">Focus:</span> Increasing daily team collaboration productivity with a reliable scheduling system.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div class="max-w-[1200px] mx-auto px-6 md:px-12 py-8">
+            <div class="h-px w-full bg-gradient-to-r from-transparent via-outline-variant/20 to-transparent"></div>
+        </div>
+
+        <!-- EDUCATION & CERTIFICATIONS SECTION -->
+        <section class="max-w-[1200px] mx-auto px-6 md:px-12 py-16 scroll-mt-24" id="education">
+            <div class="flex flex-col gap-3 mb-16 text-center lg:text-left">
+                <h2 class="text-3xl font-display font-extrabold text-on-background">Education &amp; Credentials</h2>
+                <p class="text-base text-on-surface-variant max-w-xl font-body">Summary of my academic qualifications,
+                    advanced degrees, and industrial certifications.</p>
+            </div>
 
             <!-- Education Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-10 px-4">
-                
-                <!-- S2 Budi Luhur -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md border-l-4 border-blue-400">
-                    <p class="text-xl font-bold primary-color">Budi Luhur University</p>
-                    <p class="text-lg font-semibold text-gray-700">Master of computer science (2021 - 2023)</p>
-                    <p class="text-sm text-gray-500 mb-3">GPA 3.61</p>
-                    <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
-                        <li>Contribute to Book 360° Data Management</li>
-                        <li>Employee Salary Information System Design</li>
-                        <li>E-Voting System Design Using Face Recognition in South Tangerang City</li>
-                        <li>Sentiment Analysis PT. Gudang Garam On Twitter Using Sentistrength, Hybrid TF-IDF & Cosine Similarity Methods</li>
-                    </ul>
-                </div>
-                
-                <!-- D4 Politeknik Negeri Malang -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md border-l-4 border-blue-400">
-                    <p class="text-xl font-bold primary-color">State Polytechnic of Malang</p>
-                    <p class="text-lg font-semibold text-gray-700">Informatics Engineering (2016 - 2020)</p>
-                    <p class="text-sm text-gray-500 mb-3">GPA 3.61</p>
-                    <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
-                        <li>Vice President at LPM Kompen (2019-2020)</li>
-                        <li>Internet of Things system for monitoring & controlling oyster mushroom cultivation</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <hr class="max-w-4xl mx-auto my-8 border-gray-200">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
 
-            <!-- Certification Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto px-4 text-center">
-                <div class="p-4 rounded-lg bg-blue-50/70 shadow-sm">
-                    <i class="fas fa-certificate text-xl primary-color mb-1"></i>
-                    <p class="text-sm font-medium">Certification Into Product Management (RevoU)</p>
+                <!-- S2 Budi Luhur -->
+                <div class="glass-panel p-8 rounded-2xl flex flex-col hover:border-primary-container/20 group">
+                    <div class="flex flex-wrap justify-between items-start gap-4 mb-6">
+                        <div>
+                            <span
+                                class="text-xs font-semibold text-primary font-body bg-primary/5 px-2.5 py-1 rounded-full uppercase tracking-wider">Postgraduate
+                                Degree</span>
+                            <h3 class="text-2xl font-headline font-bold text-on-background mt-2">Budi Luhur University
+                            </h3>
+                            <h4 class="text-base font-semibold text-tertiary mt-1 font-body">Master of Computer Science
+                            </h4>
+                        </div>
+                        <div class="text-left lg:text-right">
+                            <span class="text-sm font-semibold text-on-surface-variant block font-body">2021 –
+                                2023</span>
+                            <span
+                                class="text-xs font-semibold text-green-400 bg-green-500/10 px-2 py-0.5 rounded block mt-1 w-fit md:ml-auto">GPA
+                                3.61</span>
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-on-surface-variant/80 font-semibold mb-3 font-body uppercase tracking-wider">
+                        Research &amp; Systems Developed:</p>
+                    <ul class="space-y-3 text-sm text-on-surface-variant font-body">
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">menu_book</span>
+                            <span>Contributed as an author to the published book "360° Data Management".</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span
+                                class="material-symbols-outlined text-primary text-[18px] mt-0.5">desktop_windows</span>
+                            <span>Designed and modeled a comprehensive corporate Employee Salary Information
+                                System.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">fingerprint</span>
+                            <span>Designed a secure electronic E-Voting System Design employing Face Recognition
+                                algorithms for South Tangerang municipal parameters.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">analytics</span>
+                            <span>Engineered Twitter Sentiment Analysis for PT. Gudang Garam using SentiStrength, Hybrid
+                                TF-IDF, and Cosine Similarity methodologies.</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="p-4 rounded-lg bg-blue-50/70 shadow-sm">
-                    <i class="fas fa-certificate text-xl primary-color mb-1"></i>
-                    <p class="text-sm font-medium">Certificate Of Competence Data Analyst (DQLab)</p>
+
+                <!-- D4 Malang -->
+                <div class="glass-panel p-8 rounded-2xl flex flex-col hover:border-primary-container/20 group">
+                    <div class="flex flex-wrap justify-between items-start gap-4 mb-6">
+                        <div>
+                            <span
+                                class="text-xs font-semibold text-tertiary font-body bg-tertiary/5 px-2.5 py-1 rounded-full uppercase tracking-wider">Undergraduate
+                                Degree</span>
+                            <h3 class="text-2xl font-headline font-bold text-on-background mt-2">State Polytechnic of
+                                Malang</h3>
+                            <h4 class="text-base font-semibold text-tertiary mt-1 font-body">Bachelor of Informatics
+                                Engineering</h4>
+                        </div>
+                        <div class="text-left lg:text-right">
+                            <span class="text-sm font-semibold text-on-surface-variant block font-body">2016 –
+                                2020</span>
+                            <span
+                                class="text-xs font-semibold text-green-400 bg-green-500/10 px-2 py-0.5 rounded block mt-1 w-fit md:ml-auto">GPA
+                                3.61</span>
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-on-surface-variant/80 font-semibold mb-3 font-body uppercase tracking-wider">
+                        Key Contributions &amp; Research:</p>
+                    <ul class="space-y-3 text-sm text-on-surface-variant font-body">
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-tertiary text-[18px] mt-0.5">groups</span>
+                            <span>Elected as Vice President of LPM Kompen (2019-2020) student organization, managing
+                                campus journalism teams.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span
+                                class="material-symbols-outlined text-tertiary text-[18px] mt-0.5">settings_input_antenna</span>
+                            <span>Developed a functional Internet of Things (IoT) embedded system for tracking and
+                                controlling environments in oyster mushroom cultivation.</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="p-4 rounded-lg bg-blue-50/70 shadow-sm">
-                    <i class="fas fa-certificate text-xl primary-color mb-1"></i>
-                    <p class="text-sm font-medium">Certificate Of Competence Android Developer (BNSP)</p>
+
+            </div>
+
+            <h3
+                class="text-xl font-headline font-bold text-on-background mb-8 text-center uppercase tracking-wide text-primary">
+                Professional Certifications</h3>
+
+            <!-- Certification Badges Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-[1000px] mx-auto">
+
+                <!-- PM Cert -->
+                <div
+                    class="glass-panel p-5 rounded-xl text-center flex flex-col justify-center items-center gap-3 hover:bg-surface-container-high/40">
+                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined">workspace_premium</span>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider font-body mb-0.5">
+                            Product Management</p>
+                        <p class="text-xs text-on-surface/90 font-medium font-body leading-tight">RevoU Certification
+                        </p>
+                    </div>
                 </div>
-                <div class="p-4 rounded-lg bg-blue-50/70 shadow-sm">
-                    <i class="fas fa-graduation-cap text-xl primary-color mb-1"></i>
-                    <p class="text-sm font-medium">TOEFL (567)</p>
+
+                <!-- DA Cert -->
+                <div
+                    class="glass-panel p-5 rounded-xl text-center flex flex-col justify-center items-center gap-3 hover:bg-surface-container-high/40">
+                    <div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
+                        <span class="material-symbols-outlined">query_stats</span>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider font-body mb-0.5">
+                            Data Analysis</p>
+                        <p class="text-xs text-on-surface/90 font-medium font-body leading-tight">DQLab Competence
+                            Certification</p>
+                    </div>
                 </div>
+
+                <!-- Android Cert -->
+                <div
+                    class="glass-panel p-5 rounded-xl text-center flex flex-col justify-center items-center gap-3 hover:bg-surface-container-high/40">
+                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined">phone_android</span>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider font-body mb-0.5">
+                            Android Developer</p>
+                        <p class="text-xs text-on-surface/90 font-medium font-body leading-tight">BNSP Competence
+                            Certificate</p>
+                    </div>
+                </div>
+
+                <!-- TOEFL Cert -->
+                <div
+                    class="glass-panel p-5 rounded-xl text-center flex flex-col justify-center items-center gap-3 hover:bg-surface-container-high/40">
+                    <div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
+                        <span class="material-symbols-outlined">translate</span>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider font-body mb-0.5">
+                            TOEFL Score</p>
+                        <p class="text-sm font-extrabold text-primary-container font-headline leading-tight">567</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div class="max-w-[1200px] mx-auto px-6 md:px-12 py-8">
+            <div class="h-px w-full bg-gradient-to-r from-transparent via-outline-variant/20 to-transparent"></div>
+        </div>
+
+        <!-- CONTACT SECTION -->
+        <section class="max-w-[1200px] mx-auto px-6 md:px-12 py-16 scroll-mt-24" id="contact">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+                <!-- Left Details Column -->
+                <div class="lg:col-span-5 flex flex-col gap-6">
+                    <div>
+                        <span
+                            class="text-primary text-xs font-semibold tracking-widest uppercase flex items-center gap-2 mb-2 font-body">
+                            Get In Touch
+                        </span>
+                        <h2 class="text-3xl md:text-4xl font-display font-extrabold text-on-background mb-4">Let's
+                            Collaborate</h2>
+                        <p class="text-base text-on-surface-variant leading-relaxed font-body">Have a complex
+                            application in pipeline or looking to onboard a versatile fullstack expert? Reach out
+                            through any channels below.</p>
+                    </div>
+
+                    <!-- Detail cards -->
+                    <div class="flex flex-col gap-4 mt-4">
+
+                        <!-- Email Card -->
+                        <a class="glass-panel p-5 rounded-xl flex items-center gap-4 hover:border-primary-container/20 group cursor-pointer"
+                            href="mailto:fikri.winaji@gmail.com">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                <span class="material-symbols-outlined text-[20px]">mail</span>
+                            </div>
+                            <div>
+                                <p class="text-xs text-on-surface-variant font-medium font-body leading-none mb-1">Send
+                                    an Email</p>
+                                <p class="text-sm font-semibold text-on-background font-body">fikri.winaji@gmail.com</p>
+                            </div>
+                        </a>
+
+                        <!-- Phone Card -->
+                        <a class="glass-panel p-5 rounded-xl flex items-center gap-4 hover:border-primary-container/20 group cursor-pointer"
+                            href="tel:082232019404">
+                            <div
+                                class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+                                <span class="material-symbols-outlined text-[20px]">call</span>
+                            </div>
+                            <div>
+                                <p class="text-xs text-on-surface-variant font-medium font-body leading-none mb-1">Make
+                                    a Call</p>
+                                <p class="text-sm font-semibold text-on-background font-body">082232019404</p>
+                            </div>
+                        </a>
+
+                        <!-- Github Card -->
+                        <a class="glass-panel p-5 rounded-xl flex items-center gap-4 hover:border-primary-container/20 group cursor-pointer"
+                            href="https://github.com/fikri100" target="_blank">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                <i class="fab fa-github text-[20px]"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-on-surface-variant font-medium font-body leading-none mb-1">
+                                    Explore Codebase</p>
+                                <p class="text-sm font-semibold text-on-background font-body">github.com/fikri100</p>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Right Form Column -->
+                <div class="lg:col-span-7">
+                    <div class="glass-panel p-6 md:p-8 rounded-2xl">
+                        <h3 class="text-xl font-headline font-bold text-on-background mb-6">Send an Inquiry</h3>
+
+                        <form id="contact-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label
+                                        class="block text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-1.5 font-body"
+                                        for="name">Your Name</label>
+                                    <input class="w-full form-input px-4 py-3 text-sm focus:ring-0" id="name" required
+                                        placeholder="John Doe" type="text">
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-1.5 font-body"
+                                        for="email">Email Address</label>
+                                    <input class="w-full form-input px-4 py-3 text-sm focus:ring-0" id="email" required
+                                        placeholder="john@example.com" type="email">
+                                </div>
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-1.5 font-body"
+                                    for="subject">Subject</label>
+                                <input class="w-full form-input px-4 py-3 text-sm focus:ring-0" id="subject" required
+                                    placeholder="Project Proposal" type="text">
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-1.5 font-body"
+                                    for="message">Detailed Message</label>
+                                <textarea class="w-full form-input px-4 py-3 text-sm focus:ring-0 h-32 resize-none"
+                                    id="message" required
+                                    placeholder="Briefly describe your timeline, stack, and scope..."></textarea>
+                            </div>
+
+                            <button
+                                class="w-full btn-primary py-4 rounded-lg text-sm font-semibold tracking-wide flex items-center justify-center gap-2 mt-4 font-body"
+                                type="submit">
+                                Send Message
+                                <span class="material-symbols-outlined text-[18px]">send</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </section>
 
     </main>
 
-    <!-- FOOTER (Contact) -->
-    <footer id="contact" class="primary-bg text-white py-10 mt-12">
-        <div class="container mx-auto px-4 text-center">
-            <h3 class="text-2xl font-bold mb-5">Contact Me</h3>
-            <div class="flex flex-wrap justify-center space-x-6 text-lg">
-                <a href="mailto:fikri.winaji@gmail.com" class="hover:text-blue-300 transition duration-300 flex items-center mb-2">
-                    <i class="fas fa-envelope mr-2"></i> fikri.winaji@gmail.com
-                </a>
-                <a href="tel:082232019404" class="hover:text-blue-300 transition duration-300 flex items-center mb-2">
-                    <i class="fas fa-phone mr-2"></i> 082232019404
-                </a>
-                <a href="https://github.com/fikri100" target="_blank" class="hover:text-blue-300 transition duration-300 flex items-center mb-2">
-                    <i class="fab fa-github mr-2"></i> github.com/fikri100
-                </a>
-            </div>
-            <p class="mt-6 text-sm text-gray-300">
-                Bekasi, Indonesia | Minimalist & Functional Portfolio
+    <!-- Bottom Navigation Bar (Mobile Viewports Only) -->
+    <nav
+        class="bg-surface-container/90 backdrop-blur-lg fixed bottom-0 w-full z-40 md:hidden rounded-t-xl border-t border-outline-variant/10 shadow-[0_-4px_16px_rgba(0,0,0,0.3)]">
+        <div class="flex justify-around items-center h-16 px-2">
+            <a class="flex flex-col items-center justify-center text-primary active:scale-95 transition-transform duration-150 gap-0.5"
+                href="#intro">
+                <span class="material-symbols-outlined text-[20px] font-bold">home</span>
+                <span class="text-[9px] font-bold tracking-wide font-body">Intro</span>
+            </a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-transform duration-150 gap-0.5"
+                href="#skills">
+                <span class="material-symbols-outlined text-[20px]">code</span>
+                <span class="text-[9px] font-bold tracking-wide font-body">Skills</span>
+            </a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-transform duration-150 gap-0.5"
+                href="#work">
+                <span class="material-symbols-outlined text-[20px]">work_history</span>
+                <span class="text-[9px] font-bold tracking-wide font-body">Work</span>
+            </a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-transform duration-150 gap-0.5"
+                href="#projects">
+                <span class="material-symbols-outlined text-[20px]">rocket_launch</span>
+                <span class="text-[9px] font-bold tracking-wide font-body">Projects</span>
+            </a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-transform duration-150 gap-0.5"
+                href="#education">
+                <span class="material-symbols-outlined text-[20px]">school</span>
+                <span class="text-[9px] font-bold tracking-wide font-body">Edu</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Global Footer -->
+    <footer class="bg-surface-container-lowest w-full py-8 border-t border-outline-variant/10 mb-16 md:mb-0">
+        <div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-6 md:px-12 gap-4">
+            <p class="text-sm text-on-surface-variant/80 text-center md:text-left font-body">
+                &copy; <span id="year">2026</span> Nabil Fikri Winaji &bull; Built with Visual Excellence &amp;
+                Precision
             </p>
+            <div class="flex gap-6">
+                <a class="text-xs font-semibold text-on-surface-variant hover:text-primary transition-all font-body"
+                    href="#intro">Back to Top</a>
+                <a class="text-xs font-semibold text-on-surface-variant hover:text-primary transition-all font-body"
+                    href="https://github.com/fikri100" target="_blank">GitHub</a>
+                <a class="text-xs font-semibold text-on-surface-variant hover:text-primary transition-all font-body"
+                    href="mailto:fikri.winaji@gmail.com">Email</a>
+            </div>
         </div>
     </footer>
 
+    <!-- Interactive Toast Banner (Toggled by Contact Form Submission) -->
+    <div id="toast-banner"
+        class="fixed bottom-20 md:bottom-8 right-6 z-50 glass-panel px-6 py-4 rounded-xl flex items-center gap-3 shadow-2xl translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center text-green-400">
+            <span class="material-symbols-outlined text-[20px] font-bold">check_circle</span>
+        </div>
+        <div>
+            <p class="text-sm font-bold text-on-background font-headline leading-none mb-0.5">Message Sent</p>
+            <p class="text-xs text-on-surface-variant font-body">Thank you! I will respond to your inquiry shortly.</p>
+        </div>
+    </div>
+
+    <!-- Interactive Logic Scripts -->
     <script>
-        // Simple JS for smooth scrolling navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Update footer copyright year automatically
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile drawer panel toggle handlers
+        const menuToggleBtn = document.getElementById('menu-toggle-btn');
+        const menuCloseBtn = document.getElementById('menu-close-btn');
+        const mobileDrawer = document.getElementById('mobile-menu-drawer');
+
+        menuToggleBtn.addEventListener('click', () => {
+            mobileDrawer.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        });
+
+        menuCloseBtn.addEventListener('click', closeDrawer);
+
+        function closeDrawer() {
+            mobileDrawer.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // Mock message submission behavior
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contact-form');
+
+            // Show toast banner animation
+            const toast = document.getElementById('toast-banner');
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            // Reset input values
+            form.reset();
+
+            // Dismiss toast automatically
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 4000);
+        }
+
+        // Active state indicator for mobile bottom bar and header scroll highlights
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            const bottomLinks = document.querySelectorAll('nav.md\\:hidden a');
+
+            let currentSec = '';
+
+            sections.forEach(sec => {
+                const secTop = sec.offsetTop;
+                const secHeight = sec.clientHeight;
+                if (pageYOffset >= (secTop - 250)) {
+                    currentSec = sec.getAttribute('id');
+                }
+            });
+
+            // Adjust navigation links
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary', 'font-semibold');
+                link.classList.add('text-on-surface-variant');
+                if (link.getAttribute('href') === `#${currentSec}`) {
+                    link.classList.remove('text-on-surface-variant');
+                    link.classList.add('text-primary', 'font-semibold');
+                }
+            });
+
+            // Adjust mobile bottom panel navigation links
+            bottomLinks.forEach(link => {
+                link.classList.remove('text-primary');
+                link.classList.add('text-on-surface-variant');
+                if (link.getAttribute('href') === `#${currentSec}`) {
+                    link.classList.remove('text-on-surface-variant');
+                    link.classList.add('text-primary');
+                }
             });
         });
     </script>
 </body>
+
 </html>
-
-

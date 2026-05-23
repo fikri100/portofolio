@@ -1,93 +1,238 @@
-    /* ----------------------------------------------------------------
-    Custom Styles for Nabil Fikri Winaji Portfolio
-    This file handles color variables and the responsive timeline layout.
-    ---------------------------------------------------------------- */
+/* ----------------------------------------------------------------
+Custom Styles for Nabil Fikri Winaji Portfolio
+Minimalist-Glassmorphic Hybrid Design System Overrides
+---------------------------------------------------------------- */
 
-    /* Primary Accent Colors (Dark Blue) */
-    :root {
-        --primary-color: #1e3a8a; /* Blue 800 */
-        --primary-bg: #1e3a8a;
-        --secondary-line-color: #bfdbfe; /* Blue 200 */
-    }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap');
 
-    .primary-color {
-        color: var(--primary-color);
-    }
-    .primary-bg {
-        background-color: var(--primary-bg);
-    }
-    .primary-border {
-        border-color: var(--primary-color);
-    }
+:root {
+    --background: #131315;
+    --on-background: #e5e1e4;
+    --primary: #ffb2bf;
+    --primary-container: #f65881;
+    --on-primary: #660027;
+    --secondary: #ffb4ab;
+    --tertiary: #d2bbff;
+    --outline: #a7898d;
+    --surface-container: #201f22;
+    --surface-container-high: #2a2a2c;
+    --surface-container-highest: #353437;
+}
 
-    /* ----------------------------------------------------------------
-    Timeline Layout Logic (for Work Experience)
-    ---------------------------------------------------------------- */
+/* Global scroll behavior & dark scrollbar */
+html {
+    scroll-behavior: smooth;
+    background-color: var(--background);
+}
 
-    /* The vertical line for the timeline */
-    .timeline-line {
-        position: absolute;
-        width: 2px;
-        background-color: var(--secondary-line-color);
-        top: 0;
-        bottom: 0;
-        left: 50%; /* Center the line on desktop */
-        margin-left: -1px;
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--on-background);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+    background: #353437;
+    border-radius: 5px;
+    border: 2px solid var(--background);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--outline);
+}
+
+/* Glassmorphism Panel styles */
+.glass-panel {
+    background: rgba(32, 31, 34, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.3s ease, 
+                background-color 0.3s ease;
+}
+
+/* Ambient glow backgrounds */
+.ambient-glow-primary {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(246, 88, 129, 0.12) 0%, rgba(19, 19, 21, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.ambient-glow-secondary {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(164, 118, 255, 0.08) 0%, rgba(19, 19, 21, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Text elements & Gradients */
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text-tertiary {
+    background: linear-gradient(135deg, var(--tertiary) 0%, #a476ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Primary Button Styling */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+    color: var(--on-primary);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 20px -5px rgba(246, 88, 129, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px -4px rgba(246, 88, 129, 0.55);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Secondary Button Styling */
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--outline);
+    color: var(--on-background);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(255, 178, 191, 0.06);
+    transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+/* Skill tag chips styling */
+.skill-chip {
+    background: var(--surface-container);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-chip:hover {
+    border-color: var(--primary-container);
+    background: var(--surface-container-highest);
+    transform: scale(1.03);
+}
+
+/* Timeline Layout & Aesthetics */
+.timeline-container {
+    position: relative;
+}
+
+.timeline-line-glow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-container), var(--tertiary), var(--secondary));
+    opacity: 0.25;
+}
+
+.timeline-node {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 8px);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--primary-container);
+    box-shadow: 0 0 14px var(--primary-container);
+    border: 3px solid var(--background);
+    z-index: 10;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.timeline-item:hover .timeline-node {
+    transform: translate(-50%, 8px) scale(1.3);
+    background: var(--primary);
+    box-shadow: 0 0 20px var(--primary);
+}
+
+@media (max-width: 768px) {
+    .timeline-line-glow {
+        left: 20px;
+        transform: none;
     }
-
-    /* The dot that sits on the timeline line */
-    .timeline-dot {
-        position: absolute;
-        width: 14px;
-        height: 14px;
-        background-color: white;
-        border: 3px solid var(--primary-color);
-        border-radius: 50%;
-        top: 15px; /* Offset from the top of the item */
-        z-index: 10;
+    .timeline-node {
+        left: 20px;
+        transform: translate(-50%, 8px);
     }
-
-    /* Positioning dots relative to the line (left/right) */
-    .timeline-item:nth-child(odd) .timeline-dot {
-        right: -7px; /* Align dot to the line on the right side */
+    .timeline-item:hover .timeline-node {
+        transform: translate(-50%, 8px) scale(1.3);
     }
-    .timeline-item:nth-child(even) .timeline-dot {
-        left: -7px; /* Align dot to the line on the left side */
-    }
+}
 
-    /* Clearfix for floating elements in the timeline */
-    .clearfix::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+/* Form controls focus states */
+.form-input {
+    background: rgba(32, 31, 34, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--on-background);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
 
-    /* --- Mobile Responsiveness for Timeline (max-width: 768px) --- */
-    @media (max-width: 768px) {
-        /* Reposition line to the left for mobile */
-        .timeline-line {
-            left: 30px;
-        }
-        
-        /* Make all items full width and shift content to the right */
-        .timeline-item {
-            width: 100% !important;
-            padding-left: 50px !important; /* Space for line and dot */
-            padding-right: 15px !important;
-            left: 0 !important;
-            float: none !important; /* Stop floating on mobile */
-        }
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-container);
+    box-shadow: 0 0 10px rgba(246, 88, 129, 0.2);
+    background: rgba(32, 31, 34, 0.6);
+}
 
-        /* Reposition dot on mobile to align with the new line position */
-        .timeline-item .timeline-dot {
-            left: 23px !important;
-            right: auto !important;
-        }
+/* Animations for background & images */
+@keyframes spin-linear {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
 
-        /* Remove margins that were used for desktop side-by-side layout */
-        .timeline-item:nth-child(odd) .timeline-content,
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-        }
-    }
+@keyframes spin-linear-reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+.animate-spin-slow {
+    animation: spin-linear 40s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+    animation: spin-linear-reverse 25s linear infinite;
+}
+
+/* Floating animation for badge cards */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}

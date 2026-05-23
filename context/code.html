@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nabil Fikri Winaji - Software Engineer</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#ffb4ab",
+                        "primary-fixed-dim": "#ffb2bf",
+                        "on-primary-fixed-variant": "#90003a",
+                        "surface-variant": "#353437",
+                        "on-secondary-container": "#ff9f94",
+                        "background": "#131315",
+                        "surface-bright": "#39393b",
+                        "on-surface-variant": "#dfbec3",
+                        "tertiary": "#d2bbff",
+                        "on-secondary-fixed-variant": "#87201b",
+                        "tertiary-fixed": "#eaddff",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#25005a",
+                        "on-error": "#690005",
+                        "surface-dim": "#131315",
+                        "secondary-container": "#8a221d",
+                        "surface-container-lowest": "#0e0e10",
+                        "surface": "#131315",
+                        "outline": "#a7898d",
+                        "on-primary-container": "#5a0021",
+                        "on-background": "#e5e1e4",
+                        "surface-container": "#201f22",
+                        "surface-tint": "#ffb2bf",
+                        "surface-container-highest": "#353437",
+                        "on-primary": "#660027",
+                        "surface-container-low": "#1c1b1d",
+                        "on-tertiary-container": "#36007d",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#584144",
+                        "primary": "#ffb2bf",
+                        "error-container": "#93000a",
+                        "on-tertiary": "#3f008e",
+                        "inverse-surface": "#e5e1e4",
+                        "tertiary-fixed-dim": "#d2bbff",
+                        "on-surface": "#e5e1e4",
+                        "on-secondary-fixed": "#410002",
+                        "on-secondary": "#670508",
+                        "primary-container": "#f65881",
+                        "on-primary-fixed": "#3f0015",
+                        "inverse-on-surface": "#313032",
+                        "surface-container-high": "#2a2a2c",
+                        "secondary-fixed": "#ffdad6",
+                        "tertiary-container": "#a476ff",
+                        "inverse-primary": "#b22350",
+                        "on-tertiary-fixed-variant": "#5a00c6",
+                        "primary-fixed": "#ffd9de",
+                        "secondary-fixed-dim": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "margin-mobile": "24px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "margin-desktop": "80px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        
+        .glass-panel {
+            background: rgba(32, 31, 34, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, theme('colors.primary') 0%, theme('colors.primary-container') 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, theme('colors.primary') 0%, theme('colors.primary-container') 100%);
+            color: theme('colors.on-primary');
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px -5px rgba(246, 88, 129, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px -5px rgba(246, 88, 129, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid theme('colors.outline');
+            color: theme('colors.on-background');
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: theme('colors.primary');
+            color: theme('colors.primary');
+            background: rgba(255, 178, 191, 0.05);
+        }
+
+        .skill-chip {
+            background: theme('colors.surface-container');
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-chip:hover {
+            border-color: theme('colors.primary-container');
+            background: theme('colors.surface-container-highest');
+        }
+
+        /* Ambient glow effects */
+        .ambient-glow-primary {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(246, 88, 129, 0.15) 0%, rgba(19, 19, 21, 0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="antialiased relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Background Glows -->
+<div class="ambient-glow-primary top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+<div class="ambient-glow-primary bottom-0 right-0 translate-x-1/4 translate-y-1/4" style="background: radial-gradient(circle, rgba(164, 118, 255, 0.1) 0%, rgba(19, 19, 21, 0) 70%);"></div>
+<!-- TopAppBar -->
+<nav class="bg-background/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/10">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
+<!-- Leading Brand -->
+<div class="flex items-center gap-stack-sm hover:opacity-80 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-primary text-2xl">terminal</span>
+<span class="text-headline-md font-headline-md font-bold tracking-tight text-on-background">Nabil Fikri</span>
+</div>
+<!-- Web Navigation (Hidden on Mobile) -->
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="text-primary font-semibold text-label-sm font-label-sm tracking-wide" href="#intro">Intro</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm tracking-wide" href="#skills">Skills</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm tracking-wide" href="#work">Work</a>
+</div>
+<!-- Trailing Action -->
+<a class="hidden md:inline-flex items-center justify-center px-4 py-2 rounded-lg btn-secondary text-label-sm font-label-sm" href="#contact">
+                Contact Me
+            </a>
+<!-- Mobile Menu Placeholder (Optional interaction) -->
+<button class="md:hidden text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop min-h-[80vh] flex flex-col justify-center relative" id="intro">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<!-- Text Content -->
+<div class="lg:col-span-7 flex flex-col gap-stack-lg z-10 order-2 lg:order-1 mt-12 lg:mt-0">
+<div class="flex flex-col gap-stack-sm">
+<span class="text-primary text-label-sm font-label-sm tracking-widest uppercase flex items-center gap-2">
+<span class="w-8 h-px bg-primary"></span>
+                            Available for new opportunities
+                        </span>
+<h1 class="text-display-lg font-display-lg text-on-background leading-tight">
+                            Software Engineer <br/>
+<span class="gradient-text">&amp; System Analyst</span>
+</h1>
+</div>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">
+                        I am a software engineer with over 4+ years of experience. I have a high enthusiasm to continue learning and improving. Having a 3+ years experience software developer has enriched my understanding of technical design, coding, debugging, and problem solving.
+                    </p>
+<div class="flex flex-wrap gap-stack-md pt-stack-sm">
+<a class="btn-primary px-8 py-4 rounded-lg font-label-sm text-label-sm flex items-center gap-2" href="#contact">
+                            Work with me
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="btn-secondary px-8 py-4 rounded-lg font-label-sm text-label-sm flex items-center gap-2 group" href="#skills">
+                            Explore Skills
+                            <span class="material-symbols-outlined text-[18px] group-hover:translate-y-1 transition-transform">south</span>
+</a>
+</div>
+<div class="flex items-center gap-stack-md mt-stack-md text-on-surface-variant">
+<div class="flex gap-4">
+<a aria-label="LinkedIn" class="hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">link</span>
+</a>
+<a aria-label="Email" class="hover:text-primary transition-colors" href="mailto:fikri.winaji@gmail.com">
+<span class="material-symbols-outlined">mail</span>
+</a>
+<a aria-label="Phone" class="hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">call</span>
+</a>
+</div>
+<span class="w-px h-6 bg-outline-variant"></span>
+<span class="text-label-sm font-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Magetan, East Java
+                        </span>
+</div>
+</div>
+<!-- Image/Visual Anchor -->
+<div class="lg:col-span-5 relative z-10 order-1 lg:order-2 flex justify-center lg:justify-end">
+<div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px]">
+<!-- Decorative elements around image -->
+<div class="absolute inset-0 rounded-full border border-primary/20 scale-105 animate-[spin_60s_linear_infinite]"></div>
+<div class="absolute inset-0 rounded-full border border-tertiary/20 scale-110 animate-[spin_40s_linear_infinite_reverse]"></div>
+<div class="w-full h-full rounded-full overflow-hidden glass-panel p-2 relative z-10">
+<div class="w-full h-full rounded-full overflow-hidden bg-surface-container">
+<img alt="Nabil Fikri Winaji" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1ODmDJarxCM5aT97Qaq07BT2wT9wF3XNS8WXt_TA4-9R60mdc4xYEdx0K34NwfW_Ap6kNnoYOtba8OAMFrEDJ_oDYCWIRqfWqGrPBPxhlSbe3Weik61k4mtFBA1u9rlem6nLqopdNSK53pzgJUjCGC7o2kS72shpNghLyoEx1ZbLBCtU32d7EnNT1q0cCW75mDpM7whMqeaB5XXgVxDbGxJ-nIDL5ooamqXDrnXMydrnnWlwP6krUoA4k3UEmYQ3cvUy9ZJ9SDA"/>
+</div>
+</div>
+<!-- Floating Badge -->
+<div class="absolute bottom-4 -left-4 glass-panel px-4 py-3 rounded-xl flex items-center gap-3 z-20 shadow-2xl">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">verified</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-background">Experience</p>
+<p class="text-headline-md font-headline-md text-primary-container leading-none">4+ Yrs</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="h-px w-full bg-gradient-to-r from-transparent via-outline-variant/30 to-transparent"></div>
+</div>
+<!-- Skills Section (Bento Grid Style) -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-section-gap scroll-mt-32" id="skills">
+<div class="flex flex-col gap-stack-sm mb-stack-lg text-center lg:text-left">
+<h2 class="text-headline-lg font-headline-lg text-on-background">Specializations</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-xl">Technical proficiencies spanning database management, backend development, and deployment orchestration.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Database Card -->
+<div class="glass-panel p-8 rounded-2xl flex flex-col gap-stack-md group hover:bg-surface-container-high transition-colors">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">database</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-background">Database</h3>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="skill-chip px-3 py-1.5 rounded-md text-label-sm font-label-sm text-on-surface">MySQL</span>
+<span class="skill-chip px-3 py-1.5 rounded-md text-label-sm font-label-sm text-on-surface">PostgreSQL</span>
+<span class="skill-chip px-3 py-1.5 rounded-md text-label-sm font-label-sm text-on-surface">SQL Server</span>
+<span class="skill-chip px-3 py-1.5 rounded-md text-label-sm font-label-sm text-on-surface">Oracle RDBMS</span>
+</div>
+</div>
+<!-- Coding Card (Spans 2 columns on large screens) -->
+<div class="glass-panel p-8 rounded-2xl flex flex-col gap-stack-md group hover:bg-surface-container-high transition-colors lg:col-span-2 relative overflow-hidden">
+<!-- Subtle background decoration -->
+<span class="material-symbols-outlined absolute -right-8 -top-8 text-[120px] text-primary/5 group-hover:text-primary/10 transition-colors pointer-events-none">code</span>
+<div class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform relative z-10">
+<span class="material-symbols-outlined">integration_instructions</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-background relative z-10">Coding &amp; Logic</h3>
+<p class="text-body-md font-body-md text-on-surface-variant relative z-10">Primary languages used for backend systems and full-stack development.</p>
+<div class="flex flex-wrap gap-2 mt-auto relative z-10">
+<span class="skill-chip px-3 py-1.5 rounded-md text-label-sm font-label-sm text-primary">Java</span>
+<span class="skill-chip px-3 py-1.5 rounded-md text-label-sm font-label-sm text-primary">Golang</span>
+<span class="skill-chip px-3 py-1.5 rounded-md text-label-sm font-label-sm text-on-surface">PHP</span>
+<span class="skill-chip px-3 py-1.5 rounded-md text-label-sm font-label-sm text-on-surface">Javascript</span>
+<span class="skill-chip px-3 py-1.5 rounded-md text-label-sm font-label-sm text-on-surface">Angular</span>
+<span class="skill-chip px-3 py-1.5 rounded-md text-label-sm font-label-sm text-on-surface">Python</span>
+</div>
+</div>
+<!-- Deployment Card -->
+<div class="glass-panel p-8 rounded-2xl flex flex-col gap-stack-md group hover:bg-surface-container-high transition-colors">
+<div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">cloud_sync</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-background">Deployment</h3>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="skill-chip px-3 py-1.5 rounded-md text-label-sm font-label-sm text-on-surface">Openshift</span>
+<span class="skill-chip px-3 py-1.5 rounded-md text-label-sm font-label-sm text-on-surface">Argo CD</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="bg-surface-container/90 backdrop-blur-lg fixed bottom-0 w-full z-50 md:hidden rounded-t-xl border-t border-outline-variant/10 shadow-[0_-4px_12px_rgba(0,0,0,0.15)]">
+<div class="flex justify-around items-center h-16 px-4">
+<a class="flex flex-col items-center justify-center text-primary active:scale-90 transition-transform duration-200 gap-1" href="#intro">
+<span class="material-symbols-outlined text-[20px] fill">home</span>
+<span class="text-label-sm font-label-sm text-[10px]">Intro</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform duration-200 gap-1" href="#skills">
+<span class="material-symbols-outlined text-[20px]">code</span>
+<span class="text-label-sm font-label-sm text-[10px]">Skills</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform duration-200 gap-1" href="#work">
+<span class="material-symbols-outlined text-[20px]">work_history</span>
+<span class="text-label-sm font-label-sm text-[10px]">Work</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform duration-200 gap-1" href="#contact">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+<span class="text-label-sm font-label-sm text-[10px]">Contact</span>
+</a>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-stack-lg border-t border-outline-variant/10 mb-16 md:mb-0">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop gap-stack-md">
+<p class="text-body-md font-body-md text-on-surface-variant text-center md:text-left">
+                © 2024 Nabil Fikri Winaji • Engineer &amp; Architect
+            </p>
+<div class="flex gap-stack-md">
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">LinkedIn</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">GitHub</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Resume</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="mailto:fikri.winaji@gmail.com">Email</a>
+</div>
+</div>
+</footer>
+</body></html>
